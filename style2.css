@@ -1,0 +1,320 @@
+
+/* Reset básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Fonte mais comum para UI moderna */
+}
+
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: linear-gradient(135deg, #E0F2F1, #BBDEFB); /* Cores de fundo mais claras e suaves */
+   
+    /* Adiciona alguns dos ícones de fundo como elementos fixos */
+}
+
+
+/* Padrão de fundo (ícones de átomo/livro/engrenagem/estrela) */
+/* Isso é um pouco mais complexo de replicar perfeitamente com CSS puro.
+   Aqui, simulamos com elementos pseudo e ícones SVG ou FontAwesome posicionados.
+   Para replicar *exatamente* o padrão, uma imagem de fundo seria mais simples.
+*/
+.background-pattern::before,
+.background-pattern::after {
+    content: '';
+    position: absolute;
+    width: 60px;
+    height: 60px;
+    opacity: 0.2;
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+
+/* Exemplo de ícones posicionados - você precisaria de mais para replicar o grid */
+.background-pattern::before {
+    top: 5%;
+    left: 10%;
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="%23a0a0a0" d="M112 0c13.3 0 24 10.7 24 24V64c0 13.3-10.7 24-24 24H24C10.7 88 0 77.3 0 64V24C0 10.7 10.7 0 24 0H112zM320 0c13.3 0 24 10.7 24 24V64c0 13.3-10.7 24-24 24H216C202.7 88 192 77.3 192 64V24c0-13.3 10.7-24 24-24H320zM448 0c13.3 0 24 10.7 24 24V64c0 13.3-10.7 24-24 24H360c-13.3 0-24-10.7-24-24V24c0-13.3 10.7-24 24-24h88zM192 128c13.3 0 24 10.7 24 24v40c0 13.3-10.7 24-24 24H24c-13.3 0-24-10.7-24-24V152c0-13.3 10.7-24 24-24H192zM448 128c13.3 0 24 10.7 24 24v40c0 13.3-10.7 24-24 24H360c-13.3 0-24-10.7-24-24V152c0-13.3 10.7-24 24-24h88zM0 280V456c0 13.3 10.7 24 24 24H336c13.3 0 24-10.7 24-24V280c0-13.3-10.7-24-24-24H24c-13.3 0-24 10.7-24 24zM392 256c-13.3 0-24 10.7-24 24v40c0 13.3 10.7 24 24 24h96c13.3 0 24-10.7 24-24V280c0-13.3-10.7-24-24-24H392zm0 160c-13.3 0-24 10.7-24 24v40c0 13.3 10.7 24 24 24h96c13.3 0 24-10.7 24-24V440c0-13.3-10.7-24-24-24H392z"/></svg>'); /* Exemplo de um ícone de livro */
+    transform: rotate(-15deg);
+}
+
+
+.background-pattern::after {
+    bottom: 8%;
+    right: 12%;
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="%23a0a0a0" d="M224 96A128 128 0 1 0 224 352a128 128 0 1 0 0-256zM132.8 33.7c-2.4-5.6-8.2-8.8-14.3-7.5S107 33.5 107 39.7c0 7.8 6.8 13.5 14.6 11.9c6.4-1.3 11.9 2.5 14.3 8.1l21.2 49.3c5 11.6 20.3 16.5 32 11.5L257.6 90.7l22.7 52.8c-2.3 2.1-4.7 4.1-7.2 6c-27.1 21-50.1 48-68.5 79.4c-9.5 16.5-16.7 34.6-21.6 53.6H60.2c-15.6 0-28.7 12.2-29.8 27.7c-1.1 15.5 10.6 29.4 26.1 30.5c15.5 1.1 29.4-10.6 30.5-26.1c.3-3.6.4-7.3 .4-11c0-43.7 17.5-84.5 48.7-114.6c17.5-16.9 36.6-30.8 56.7-41.5l-25.9-60.2c-5-11.6--.1-26.9 11.5-32s26.9-.1 32 11.5l21.2 49.3c5 11.6 20.3 16.5 32 11.5L341.6 90.7l22.7 52.8c11.6 5 16.5 20.3 11.5 32l-21.2 49.3c5-11.6 20.3-16.5 32-11.5L405.6 90.7l22.7 52.8c-2.3 2.1-4.7 4.1-7.2 6c-27.1 21-50.1 48-68.5 79.4c-9.5 16.5-16.7 34.6-21.6 53.6H451.8c15.6 0 28.7-12.2 29.8-27.7c1.1-15.5-10.6-29.4-26.1-30.5c-15.5-1.1-29.4 10.6-30.5 26.1c-.3 3.6-.4 7.3-.4 11c0 43.7-17.5 84.5-48.7 114.6c-17.5 16.9-36.6 30.8-56.7 41.5l-25.9-60.2c-5-11.6-20.3-16.5-32-11.5s-26.9.1-32 11.5L257.6 399.3l-22.7-52.8c-11.6-5-26.9.1-32 11.5l-21.2 49.3c-5 11.6-.1 26.9 11.5 32s26.9.1 32 11.5l21.2 49.3c-5-11.6-20.3-16.5-32-11.5L107 33.5l-22.7 52.8c-11.6-5-16.5-20.3-11.5-32l21.2-49.3c-5-11.6-20.3-16.5-32-11.5L69.6 421.3l-22.7-52.8c-11.6-5-26.9.1-32 11.5l-21.2 49.3c-5 11.6-.1 26.9 11.5 32L107 478.5l22.7 52.8c-2.3-2.1-4.7-4.1-7.2-6c-27.1-21-50.1-48-68.5-79.4c-9.5-16.5-16.7-34.6-21.6-53.6H60.2c-15.6 0-28.7-12.2-29.8-27.7c-1.1-15.5 10.6-29.4 26.1-30.5c15.5-1.1 29.4 10.6 30.5 26.1c.3 3.6.4 7.3.4 11c0 43.7 17.5 84.5 48.7 114.6c17.5 16.9 36.6 30.8 56.7 41.5l-25.9 60.2c-5 11.6-20.3 16.5-32 11.5s-26.9.1-32 11.5L257.6 399.3l-22.7-52.8c-11.6-5-26.9.1-32 11.5l-21.2 49.3c-5 11.6-.1 26.9 11.5 32L107 478.5l22.7 52.8c-2.3-2.1-4.7-4.1-7.2-6c-27.1-21-50.1-48-68.5-79.4c-9.5-16.5-16.7-34.6-21.6-53.6H451.8c15.6 0 28.7-12.2 29.8-27.7c1.1-15.5-10.6-29.4-26.1-30.5c-15.5-1.1-29.4 10.6-30.5 26.1c-.3 3.6-.4 7.3-.4 11c0 43.7-17.5 84.5-48.7 114.6c-17.5 16.9-36.6 30.8-56.7 41.5l-25.9 60.2c-5 11.6-20.3 16.5-32 11.5s-26.9.1-32 11.5L257.6 399.3l-22.7-52.8c-11.6-5-26.9.1-32 11.5L224 96z"/></svg>'); /* Exemplo de um ícone de átomo */
+    transform: rotate(20deg);
+}
+
+
+
+
+.login-container {          
+    width: 100%;
+    max-width: 420px; /* Levemente mais estreito */
+    padding: 0 20px; /* Padding para telas menores */
+}
+
+
+/* Cartão de login com cores e sombras ajustadas */
+.login-card {
+    background-color: rgba(255, 255, 255, 0.95); /* Menos translúcido */
+    padding: 35px 30px; /* Padding ajustado */
+    border-radius: 25px; /* Bordas mais arredondadas */
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1); /* Sombra mais suave e espalhada */
+    backdrop-filter: blur(8px); /* Blur um pouco mais intenso */
+    -webkit-backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 255, 255, 0.5); /* Borda mais visível */
+    text-align: center;
+    height: auto;
+    width: 550px;/* Tamanho do logo ajustado */
+    align-items: center;
+    display: flex;
+    justify-items: center;
+    flex-direction:row;
+
+
+
+
+}
+
+
+/* Estilização do Logo e Título */
+.logo {        
+    margin-bottom: 30px; /* Espaçamento ajustado */
+}
+
+
+.logo-image { /* Usaremos uma imagem real para o logo */
+    width: 210px; /* Tamanho do logo ajustado */
+    height: auto;
+    margin-bottom: 10px;
+}
+
+
+.logo h1 {
+    font-size: 26px; /* Tamanho do título */
+    color: #4CAF50; /* Verde principal */
+    margin: 5px 0 0;
+    font-weight: 700; /* Mais negrito */
+}
+
+
+.logo p {
+    font-size: 13px; /* Tamanho da tagline */
+    color: #757575; /* Cinza mais específico */
+    margin-top: 5px;
+    letter-spacing: 0.5px; /* Leve espaçamento entre letras */
+}
+
+
+/* Campos de entrada */
+.input-group {
+    display: flex;
+    align-items: center;
+    background-color: #F5F5F5; /* Fundo do input mais claro */
+    border-radius: 12px; /* Bordas mais arredondadas */
+    padding: 14px 18px; /* Padding ajustado */
+    margin-bottom: 18px; /* Espaçamento entre inputs */
+    border: 1px solid #E0E0E0; /* Borda sutil */
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.05); /* Sombra interna sutil */
+}
+
+
+.input-group i {
+    color: #9E9E9E; /* Cinza para os ícones */
+    margin-right: 15px;
+    font-size: 19px; /* Tamanho dos ícones */
+}
+
+
+.input-group input {
+    flex-grow: 1;
+    border: none;
+    outline: none;
+    font-size: 16px;
+    color: #424242; /* Cor do texto digitado */
+    background: transparent;
+}
+
+
+.input-group input::placeholder {
+    color: #BDBDBD; /* Cor do placeholder mais suave */
+}
+
+
+/* Seletor de Perfil (Toggle) */
+.profile-selector {
+    display: flex;
+    align-items: center;
+    background-color: #F5F5F5; /* Fundo do seletor mais claro */
+    border-radius: 12px;
+    padding: 14px 18px;
+    margin-bottom: 30px; /* Espaçamento antes do botão */
+    border: 1px solid #E0E0E0;
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.05);
+    justify-content: space-between;
+}
+
+
+.profile-selector i {
+    color: #9E9E9E;
+    margin-right: 15px;
+    font-size: 19px;
+}
+
+
+.profile-selector .label {
+    color: #9E9E9E;
+    flex-grow: 1;
+    text-align: left;
+    margin-right: 10px;
+    font-size: 16px;
+}
+
+
+.profile-selector .options {
+    display: flex;
+    gap: 15px;
+    position: relative; /* Para o indicador de seleção */
+}
+
+
+.profile-selector label {
+    font-size: 15px;
+    cursor: pointer;
+    transition: color 0.3s ease-in-out;
+    user-select: none;
+    padding: 5px 0;
+    position: relative;
+    z-index: 2; /* Para ficar acima do "highlight" */
+    color: #757575; /* Cor padrão para texto do perfil */
+    font-weight: 500;
+}
+
+
+.profile-selector input[type="radio"] {
+    display: none;
+}
+
+
+/* Estilo para a opção de perfil ativa */
+.profile-selector input[type="radio"]:checked + label {
+    font-weight: bold;
+    color: #4CAF50; /* Verde de destaque */
+}
+
+
+/* Adicionar um background para a opção selecionada - simula o hover/active */
+/* Isso é um pouco mais avançado para ser 100% igual ao da imagem sem JS.
+   A imagem parece ter um efeito de "pill" ou "tag" na opção selecionada.
+   Para simplificar e manter a semelhança:
+*/
+.profile-selector .options::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(76, 175, 80, 0.1); /* Verde claro para o fundo do selecionado */
+    border-radius: 8px;
+    transition: left 0.3s ease, width 0.3s ease;
+    height: 30px; /* Altura do highlight */
+    z-index: 1;
+}
+
+
+/* Posição inicial para "Aluno" */
+.profile-selector input#aluno:checked ~ .options::before {
+    left: 0;
+    width: 60px; /* Largura aproximada de "Aluno" */
+}
+
+
+/* Posição para "Professor" */
+.profile-selector input#professor:checked ~ .options::before {
+    left: calc(60px + 15px); /* Largura de "Aluno" + gap */
+    width: 80px; /* Largura aproximada de "Professor" */
+}
+
+
+
+
+/* Botão Entrar com gradiente e sombra aprimorados */
+.btn-entrar {
+    width: 100%;
+    padding: 16px; /* Padding ajustado */
+    border: none;
+    border-radius: 12px; /* Mais arredondado */
+    cursor: pointer;
+    font-size: 19px; /* Tamanho da fonte do botão */
+    font-weight: bold;
+    color: white;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    /* Gradiente exato da imagem: parece um verde azulado para verde */
+    background: linear-gradient(to right, #34B0C0, #4CAF50);
+    box-shadow: 0 8px 25px rgba(0, 180, 180, 0.2), 0 4px 10px rgba(76, 175, 80, 0.3); /* Duas sombras para profundidade */
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+
+.btn-entrar:hover {
+    transform: translateY(-3px); /* Efeito de elevação mais pronunciado */
+    box-shadow: 0 12px 30px rgba(0, 180, 180, 0.3), 0 6px 15px rgba(76, 175, 80, 0.4);
+}
+
+
+.btn-entrar:active {
+    transform: translateY(0);
+    box-shadow: 0 4px 15px rgba(0, 180, 180, 0.2), 0 2px 5px rgba(76, 175, 80, 0.2);
+}
+
+
+/* Link de Primeiro Acesso */
+.first-access {
+    margin-top: 30px; /* Espaçamento ajustado */
+    font-size: 14.5px; /* Tamanho da fonte */
+    color: #757575;
+}
+
+
+.first-access a {
+    color: #4CAF50; /* Verde principal */
+    text-decoration: none;
+    font-weight: 600; /* Um pouco mais negrito */
+    transition: color 0.2s ease;
+}
+
+
+.first-access a:hover {
+    color: #388E3C; /* Verde mais escuro no hover */
+    text-decoration: underline;
+}
+
+
+/* Adaptação para telas menores, se necessário */
+@media (max-width: 480px) {
+    .login-card {
+        padding: 30px 20px;
+        margin: 0 15px; /* Margem nas laterais para não encostar na borda */
+    }
+    .logo h1 {
+        font-size: 22px;
+    }
+    .input-group, .profile-selector {
+        padding: 12px 15px;
+    }
+    .input-group input, .profile-selector .label, .profile-selector label {
+        font-size: 15px;
+    }
+    .btn-entrar {
+        font-size: 17px;
+        padding: 14px;
+    }
+}

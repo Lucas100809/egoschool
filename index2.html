@@ -4,29 +4,27 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login - EGOSCHOOL</title>
-    <link rel="stylesheet" href="styles2.css">
+    <link rel="stylesheet" href="style2.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
-    <div class="background-pattern"></div> 
-
     <div class="login-container">
         <div class="login-card">
             <div class="logo">
-                <img src="./nextcent/src/assets/images/Gemini_Generated_Image_867xke867xke867x-removebg-preview.png" alt="EGOSCHOOL Logo" class="logo-image">
+                <img src="images/sem escrita.svg" alt="EGOSCHOOL Logo" class="logo-image">
                 <h1>EGOSCHOOL</h1>
                 <p>APRENDIZAGEM SEM LIMITES</p>
             </div>
 
-            <form action="#" method="POST" class="login-form">
+            <form id="loginForm" method="GET" class="login-form">
                 <div class="input-group">
                     <i class="fas fa-user"></i>
-                    <input type="text" id="username" name="username" placeholder="Nome de usuário">
+                    <input type="text" id="username" name="username" placeholder="Nome de usuário" required>
                 </div>
 
                 <div class="input-group">
                     <i class="fas fa-lock"></i>
-                    <input type="password" id="password" name="password" placeholder="Senha">
+                    <input type="password" id="password" name="password" placeholder="Senha" required>
                 </div>
 
                 <div class="profile-selector">
@@ -40,11 +38,24 @@
                     </div>
                 </div>
 
-                <button type="submit" class="btn-entrar">ENTRAR</button>
+                <a href="./"></a><button type="submit" class="btn-entrar">ENTRAR</button>
 
-                <p class="first-access">Primeiro acesso? <a href="#">Cadastre-se aqui?</a></p>
+              
             </form>
         </div>
     </div>
-    </body>
+
+    <script>
+        document.getElementById("loginForm").addEventListener("submit", function(e) {
+            e.preventDefault(); // impede o envio normal
+
+            const form = new FormData(this);
+            const query = new URLSearchParams(form).toString();
+
+            // redireciona para a URL com os parâmetros
+            window.location.href = "dashboard.html?" + query;
+        });
+    </script>
+
+</body>
 </html>
